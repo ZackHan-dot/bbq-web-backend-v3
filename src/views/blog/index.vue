@@ -37,7 +37,8 @@
       class="table-pagination"
       size="small"
       background
-      layout="prev, pager, next"
+      v-model:current-page="state.queryForm.currentPage"
+      v-model:page-size="state.queryForm.limit"
       :total="state.queryForm.total"
       @change="handlePageChange"
     />
