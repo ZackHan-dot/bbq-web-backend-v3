@@ -1,6 +1,6 @@
 <template>
   <el-dialog v-model="dialogVisible" title="修改密码" width="500px" draggable>
-    <span>This is Password</span>
+    <div class="mt12">建设中...</div>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>

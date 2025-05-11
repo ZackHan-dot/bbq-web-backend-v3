@@ -1,7 +1,7 @@
 <template>
   <el-dropdown trigger="click">
     <div class="avatar">
-      <img src="@/assets/images/avatar.gif" alt="avatar" />
+      <img :src="userAvatar" alt="avatar" />
     </div>
     <template #dropdown>
       <el-dropdown-menu>
@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { LOGIN_URL } from "@/config";
 import { useRouter } from "vue-router";
 import { logoutApi } from "@/api/modules/login";
@@ -32,9 +32,17 @@ import { useUserStore } from "@/stores/modules/user";
 import { ElMessageBox, ElMessage } from "element-plus";
 import InfoDialog from "./InfoDialog.vue";
 import PasswordDialog from "./PasswordDialog.vue";
+import DefaultAvatar from "@/assets/images/avatar.gif";
+import { storeToRefs } from "pinia";
 
 const router = useRouter();
 const userStore = useUserStore();
+
+const { userInfo } = storeToRefs(userStore);
+
+const userAvatar = computed(() => {
+  return userInfo.value?.avatar || DefaultAvatar;
+});
 
 // 退出登录
 const logout = () => {
@@ -49,7 +57,10 @@ const logout = () => {
     // 2.清除 Token
     userStore.setToken("");
 
-    // 3.重定向到登陆页
+    // 3.清除用户信息
+    userStore.setUserInfo({});
+
+    // 4.重定向到登陆页
     router.replace(LOGIN_URL);
     ElMessage.success("退出登录成功！");
   });
