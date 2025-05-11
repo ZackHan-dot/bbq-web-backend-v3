@@ -1,9 +1,9 @@
 {
-  "name": "geeker-admin",
+  "name": "hzycoder-admin",
   "private": true,
   "version": "1.2.0",
   "type": "module",
-  "description": "geeker-admin open source management system",
+  "description": "hzycoder-admin open source management system",
   "author": {
     "name": "Geeker",
     "email": "848130454@qq.com",
@@ -40,8 +40,12 @@
     "axios": "^1.5.0",
     "dayjs": "^1.11.9",
     "element-plus": "^2.3.4",
-    "mitt": "^3.0.1",
+    "katex": "^0.16.22",
+    "lake-codemirror": "^2.0.2",
+    "lakelib": "^0.4.0",
+    "lodash": "^4.17.21",
     "md5": "^2.3.0",
+    "mitt": "^3.0.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.6",
     "pinia-plugin-persistedstate": "^3.2.0",
@@ -49,6 +53,7 @@
     "screenfull": "^6.0.2",
     "sortablejs": "^1.15.0",
     "vue": "^3.3.11",
+    "vue-i18n": "^11.1.3",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {

@@ -13,6 +13,11 @@
   display: flex;
   align-items: center;
 }
+.flex-justify-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
 /* clearfix */
 .clearfix::after {
@@ -120,4 +125,25 @@
   .pl#{$i} {
     padding-left: #{$i}px !important;
   }
+}
+.table-top-operate {
+  margin-bottom: 15px;
+}
+.table-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+.editor-full {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  padding: 10px;
+  overflow: hidden;
+  background-color: white;
 }

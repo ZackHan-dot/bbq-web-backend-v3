@@ -1,0 +1,76 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "han",
+      "nickname": "Han Kang",
+      "avatar": "<img src=\"../assets/images/universal-studios-240.jpg\" />"
+    },
+    {
+      "id": "2",
+      "name": "nihon",
+      "nickname": "Nihon Hidankyo",
+      "avatar": "<img src=\"../assets/images/heaven-lake-256.png\" />"
+    },
+    {
+      "id": "3",
+      "name": "geoffrey",
+      "nickname": "Geoffrey Hinton",
+      "avatar": "<img src=\"../assets/images/lac-gentau-256.jpg\" />"
+    },
+    {
+      "id": "4",
+      "name": "johnhopfield",
+      "nickname": "John Hopfield",
+      "avatar": "<img src=\"../assets/images/universal-studios-240.jpg\" />"
+    },
+    {
+      "id": "5",
+      "name": "demis",
+      "nickname": "Demis Hassabis",
+      "avatar": "<img src=\"../assets/images/universal-studios-240.jpg\" />"
+    },
+    {
+      "id": "6",
+      "name": "david",
+      "nickname": "David Baker",
+      "avatar": "<img src=\"../assets/images/heaven-lake-256.png\" />"
+    },
+    {
+      "id": "7",
+      "name": "johnjumper",
+      "nickname": "John Jumper",
+      "avatar": "<img src=\"../assets/images/lac-gentau-256.jpg\" />"
+    },
+    {
+      "id": "8",
+      "name": "james",
+      "nickname": "James A. Robinson",
+      "avatar": "<img src=\"../assets/images/universal-studios-240.jpg\" />"
+    },
+    {
+      "id": "9",
+      "name": "simon",
+      "nickname": "Simon Johnson",
+      "avatar": "<img src=\"../assets/images/universal-studios-240.jpg\" />"
+    },
+    {
+      "id": "10",
+      "name": "daron",
+      "nickname": "Daron Acemoglu",
+      "avatar": "<img src=\"../assets/images/heaven-lake-256.png\" />"
+    },
+    {
+      "id": "11",
+      "name": "victor",
+      "nickname": "Victor Ambros",
+      "avatar": "<img src=\"../assets/images/lac-gentau-256.jpg\" />"
+    },
+    {
+      "id": "12",
+      "name": "gary",
+      "nickname": "Gary Ruvkun",
+      "avatar": "<img src=\"../assets/images/universal-studios-240.jpg\" />"
+    }
+  ]
+}

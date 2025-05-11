@@ -4,13 +4,15 @@ import { DEFAULT_PRIMARY } from "@/config";
 import piniaPersistConfig from "@/stores/helper/persist";
 
 export const useGlobalStore = defineStore({
-  id: "geeker-global",
+  id: "hzycoder-global",
   // 修改默认值之后，需清除 localStorage 数据
   state: (): GlobalState => ({
     // 布局模式 (纵向：vertical | 经典：classic | 横向：transverse | 分栏：columns)
     layout: "vertical",
     // element 组件大小
     assemblySize: "default",
+    // 当前系统语言
+    language: null,
     // 当前页面是否全屏
     maximize: false,
     // 主题颜色
@@ -47,5 +49,5 @@ export const useGlobalStore = defineStore({
       this.$patch({ [args[0]]: args[1] });
     }
   },
-  persist: piniaPersistConfig("geeker-global")
+  persist: piniaPersistConfig("hzycoder-global")
 });

@@ -1,7 +1,7 @@
 <template>
   <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules" size="large">
     <el-form-item prop="username">
-      <el-input v-model="loginForm.username" placeholder="用户名：admin / user">
+      <el-input v-model="loginForm.username" placeholder="用户名">
         <template #prefix>
           <el-icon class="el-input__icon">
             <user />
@@ -10,7 +10,7 @@
       </el-input>
     </el-form-item>
     <el-form-item prop="password">
-      <el-input v-model="loginForm.password" type="password" placeholder="密码：123456" show-password autocomplete="new-password">
+      <el-input v-model="loginForm.password" type="password" placeholder="密码" show-password autocomplete="new-password">
         <template #prefix>
           <el-icon class="el-input__icon">
             <lock />
@@ -41,7 +41,6 @@ import { useKeepAliveStore } from "@/stores/modules/keepAlive";
 import { initDynamicRouter } from "@/routers/modules/dynamicRouter";
 import { CircleClose, UserFilled } from "@element-plus/icons-vue";
 import type { ElForm } from "element-plus";
-import md5 from "md5";
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -69,8 +68,8 @@ const login = (formEl: FormInstance | undefined) => {
     loading.value = true;
     try {
       // 1.执行登录接口
-      const { data } = await loginApi({ ...loginForm, password: md5(loginForm.password) });
-      userStore.setToken(data.access_token);
+      const { data } = await loginApi({ ...loginForm });
+      userStore.setToken(data.accessToken);
 
       // 2.添加动态路由
       await initDynamicRouter();
@@ -83,7 +82,7 @@ const login = (formEl: FormInstance | undefined) => {
       router.push(HOME_URL);
       ElNotification({
         title: getTimeState(),
-        message: "欢迎登录 Geeker-Admin",
+        message: "欢迎登录 博客管理系统",
         type: "success",
         duration: 3000
       });
@@ -112,5 +111,5 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-@import "../index.scss";
+@import "../index";
 </style>

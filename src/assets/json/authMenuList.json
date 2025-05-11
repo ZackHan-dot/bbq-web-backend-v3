@@ -16,12 +16,54 @@
       }
     },
     {
-      "path": "/about/index",
-      "name": "about",
-      "component": "/about/index",
+      "path": "/blog/index",
+      "name": "blog",
+      "component": "/blog/index",
+      "meta": {
+        "icon": "Notebook",
+        "title": "博客",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": true
+      }
+    },
+    {
+      "path": "/blog/create/index",
+      "name": "blog-create",
+      "component": "/blog/create/index",
+      "meta": {
+        "icon": "EditPen",
+        "title": "创建博客",
+        "isLink": "",
+        "isHide": true,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": false
+      }
+    },
+    {
+      "path": "/blog/update/index",
+      "name": "blog-update",
+      "component": "/blog/create/index",
+      "meta": {
+        "icon": "EditPen",
+        "title": "更新博客",
+        "isLink": "",
+        "isHide": true,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": false
+      }
+    },
+    {
+      "path": "/tag/index",
+      "name": "tag",
+      "component": "/tag/index",
       "meta": {
         "icon": "InfoFilled",
-        "title": "关于项目",
+        "title": "标签",
         "isLink": "",
         "isHide": false,
         "isFull": false,
