@@ -6,8 +6,7 @@ import { ElMessage } from "element-plus";
 import "./plugins/fullscreen";
 import FullscreenIcon from "@/assets/icons/full-screen.svg?raw";
 
-const props = defineProps(["modelValue"]);
-const emit = defineEmits(["update:modelValue"]);
+const props = defineProps(["content"]);
 
 const toolbarRef = useTemplateRef("toolbarRef");
 const contentRef = useTemplateRef("contentRef");
@@ -297,7 +296,7 @@ const slashItems: (string | SlashItem)[] = [
 ];
 
 watch(
-  () => props.modelValue,
+  () => props.content,
   (newValue, oldValue) => {
     if (oldValue !== newValue) {
       editor.value?.setValue(newValue);
@@ -313,7 +312,7 @@ onMounted(() => {
   editor.value = new Editor({
     root: contentRef.value as any,
     toolbar,
-    value: props.modelValue || "",
+    value: props.content || "",
     lang: "zh-CN",
     showMessage: (type, message) => {
       if (type === "error") {
@@ -355,9 +354,6 @@ onMounted(() => {
     }
   });
   editor.value.render();
-  editor.value?.event?.on("change", (value: any) => {
-    emit("update:modelValue", value);
-  });
 });
 
 onUnmounted(() => {

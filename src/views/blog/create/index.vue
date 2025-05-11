@@ -23,7 +23,7 @@
         <el-select-v2 v-model="state.form.tags" placeholder="请选择文章标签" :options="tagList" multiple />
       </el-form-item>
     </el-form>
-    <Lake ref="lakeRef" v-model="state.form.content" />
+    <Lake ref="lakeRef" :content="state.form.content" />
   </div>
 </template>
 <script setup lang="ts">
@@ -121,6 +121,7 @@ const handleSubmit = () => {
     if (!valid) return;
     try {
       loading.value = true;
+      state.form.content = lakeRef.value?.editor.getValue() || "";
       if (isEdit.value) {
         const { code, message }: any = await updateBlog(+(currentRoute.query.id as string), {
           ...state.form,
