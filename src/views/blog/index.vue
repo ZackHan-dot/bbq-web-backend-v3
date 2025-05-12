@@ -19,7 +19,7 @@
     <div class="table-top-operate">
       <el-button type="primary" icon="plus" @click="handleBlogAdd">新增</el-button>
     </div>
-    <el-table v-loading="state.loading" :data="state.tableData" style="width: 100%">
+    <el-table :data="state.tableData" style="width: 100%">
       <el-table-column prop="title" label="标题" width="200" show-overflow-tooltip />
       <el-table-column prop="username" label="作者" min-width="120" />
       <el-table-column prop="published" label="是否发布" />
@@ -61,8 +61,7 @@ const state = reactive({
     total: 0,
     sortBy: "createdAt",
     sortOrder: "DESC"
-  },
-  loading: false
+  }
 });
 
 const tagList = ref<any[]>([]);
@@ -139,7 +138,6 @@ const getTagData = async () => {
 };
 
 const getTableData = async () => {
-  state.loading = true;
   try {
     const params = {
       ...state.queryForm,
@@ -161,8 +159,6 @@ const getTableData = async () => {
     }
   } catch (error) {
     console.error(error);
-  } finally {
-    state.loading = false;
   }
 };
 

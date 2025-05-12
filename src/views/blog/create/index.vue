@@ -22,17 +22,20 @@
       <el-form-item label="标签" prop="tags">
         <el-select-v2 v-model="state.form.tags" placeholder="请选择文章标签" :options="tagList" multiple />
       </el-form-item>
+      <el-form-item label="内容" prop="content">
+        <WangEditor v-model:value="state.form.content" height="400px" />
+      </el-form-item>
     </el-form>
-    <Lake ref="lakeRef" :content="state.form.content" />
   </div>
 </template>
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref, shallowRef } from "vue";
+import { computed, onMounted, reactive, ref } from "vue";
 import { ElMessage, type FormInstance, type FormRules } from "element-plus";
 import { addBlog, getBlogDetail, getTagList, updateBlog } from "@/api/modules/blog";
 import { useUserStore } from "@/stores/modules/user";
 import { useRoute, useRouter } from "vue-router";
 import { isEmpty } from "lodash";
+import WangEditor from "@/components/WangEditor/index.vue";
 
 const router = useRouter();
 const currentRoute = useRoute();
@@ -72,13 +75,13 @@ const state = reactive<FromModel>({
       { pattern: /^[a-zA-Z0-9-]+$/, message: "只允许输入数字、字母和-连词符" }
     ],
     description: [{ required: true, message: "请输入文章描述" }],
-    tags: [{ required: true, message: "请选择文章标签" }]
+    tags: [{ required: true, message: "请选择文章标签" }],
+    content: [{ required: true, message: "请输入文章内容" }]
   }
 });
 const formRef = ref<FormInstance>();
 const tagList = ref([]);
 const loading = ref(false);
-const lakeRef = shallowRef();
 
 const isEdit = computed(() => {
   return !isEmpty(currentRoute.query.id);
@@ -121,7 +124,6 @@ const handleSubmit = () => {
     if (!valid) return;
     try {
       loading.value = true;
-      state.form.content = lakeRef.value?.editor.getValue() || "";
       if (isEdit.value) {
         const { code, message }: any = await updateBlog(+(currentRoute.query.id as string), {
           ...state.form,

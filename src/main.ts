@@ -18,8 +18,6 @@ import "@/styles/element-dark.scss";
 import "@/styles/element.scss";
 // svg icons
 import "virtual:svg-icons-register";
-// 全局组件
-import { registerComponents } from "./components";
 // vue i18n
 import I18n from "@/languages";
 // element plus
@@ -34,18 +32,10 @@ import router from "@/routers";
 import pinia from "@/stores";
 // errorHandler
 import errorHandler from "@/utils/errorHandler";
-import * as CodeMirror from "lake-codemirror";
-window.LakeCodeMirror = CodeMirror;
-import "katex/dist/katex.css";
-import * as Katex from "katex";
-window.katex = Katex;
 
 const app = createApp(App);
 
 app.config.errorHandler = errorHandler;
-
-// register global components
-registerComponents(app);
 
 // register the element Icons component
 Object.keys(Icons).forEach(key => {
